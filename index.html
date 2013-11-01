@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Rainbow Title</title>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+	<style>
+		* {margin: 0; padding: 0;}
+
+		body   {
+			background-image: url(clouds_bg.JPG);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover; 
+			font-family: helvetica, arial;
+			overflow: hidden;
+		}
+		h1 {
+		    position:absolute;
+		    width:650px;
+		    left:50%;
+		    top:50%;
+		    margin:-100px 0 0 -250px;
+		    font-family:'Lobster';
+		    font-size:130px;
+			color:rgba(153,153,153); /*default color*/
+			opacity:0;
+			-webkit-transition: opacity 1s ease;
+			-moz-transition: opacity 1s ease;
+			-ms-transition: opacity 1s ease;
+			-o-transition: opacity 1s ease;
+			transition: opacity 1s ease;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="rainbow">RAINBOW</h1>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<script>
+		(function() {
+			$(window).mousemove(function(e) {
+				var x, y, maxX, h, s, l;
+			    x = e.pageX; //Put the abscissa of the mouse in a variable.
+			    y = e.pageY; //Put the ordinate of the mouse in a variable.
+			    maxX = window.innerWidth;
+			    //hsl value (hue, saturation, lightness) in relation to the position of the mouse.
+			    h = (x / maxX * 360); //h is a random hue of the color wheel (360°). Its value is thus between 0 and 360. 
+			    s = 50; //(%) We can set here saturation to its middle.
+			    l = 50; //(%) We can set here lightness to its middle.
+			    $('h1').css("opacity", "1");
+			    $('.rainbow').css("color", "hsl(" + h + ", " + s + "%, " + l + "%)"); //Change the color with its new values.
+			});
+		})();
+	</script>
+</body>
+</html>
